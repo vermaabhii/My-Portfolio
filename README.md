@@ -1,7 +1,6 @@
 # Abhishek Kumar Verma - Portfolio
 
 > A modern, minimalist portfolio website showcasing projects, skills, and experience. Built with pure HTML, CSS, and JavaScript inspired by Apple design principles.
-
 ![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-0071e3)
 ![HTML](https://img.shields.io/badge/HTML5-E34C26?style=flat&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
@@ -309,12 +308,6 @@ This is a personal portfolio, but you can:
 - Fork and customize for your own use
 - Report issues or suggest improvements
 - Share feedback via email or GitHub
-
----
-
-## 📝 License
-
-This project is open source and available under the MIT License.
 
 ---
 
