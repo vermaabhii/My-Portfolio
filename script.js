@@ -23,22 +23,20 @@ function animateCursor() {
 }
 animateCursor();
 
-const interactiveElements = document.querySelectorAll('.cta-button, .project-link, .contact-link, nav a, .skill-box, .project-card');
-
-interactiveElements.forEach(element => {
-    element.addEventListener('mouseenter', () => {
+document.addEventListener('mouseover', (e) => {
+    if (e.target.closest('a, button, .skill-box, .project-card, .stat-box')) {
         cursor.style.width = '30px';
         cursor.style.height = '30px';
-        cursor.style.borderColor = '#0071e3';
-        cursor.style.opacity = '0.6';
-    });
-
-    element.addEventListener('mouseleave', () => {
+        cursor.style.backgroundColor = 'rgba(0, 113, 227, 0.1)';
+        cursor.style.borderColor = 'rgba(0, 113, 227, 0.8)';
+        cursor.style.opacity = '1';
+    } else {
         cursor.style.width = '10px';
         cursor.style.height = '10px';
-        cursor.style.borderColor = 'rgba(0, 113, 227, 0.3)';
-        cursor.style.opacity = '0.4';
-    });
+        cursor.style.backgroundColor = 'transparent';
+        cursor.style.borderColor = 'rgba(0, 113, 227, 0.6)';
+        cursor.style.opacity = '0.8';
+    }
 });
 
 const observerOptions = {
