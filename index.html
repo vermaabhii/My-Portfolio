@@ -2,182 +2,316 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Kumar Verma - Frontend Developer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhishek Kumar Verma - Frontend Developer</title>
 
-    <link rel="stylesheet" href="style.css">
+  <!-- SEO & Social sharing -->
+  <meta name="description" content="Abhishek Kumar Verma — Frontend Developer & UI/UX Enthusiast. Engineering student crafting clean, user-friendly digital experiences.">
+  <meta property="og:title" content="Abhishek Kumar Verma — Frontend Developer">
+  <meta property="og:description" content="Engineering student crafting clean, user-friendly digital experiences with HTML, CSS, and JavaScript.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vermaabhii.github.io">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Abhishek Kumar Verma — Frontend Developer">
+  <meta property="og:image" content="https://vermaabhii.github.io/og-image.png">
+  <meta name="twitter:image" content="https://vermaabhii.github.io/og-image.png">
+  <meta name="theme-color" content="#8b5cf6">
+
+  <!-- Font: DM Sans (distinctive, modern) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="brand">Abhishek</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="brand">Abhishek</div>
+      <div class="nav-links">
+        <a href="#about" data-nav="about">About</a>
+        <a href="#journey" data-nav="journey">Journey</a>
+        <a href="#projects" data-nav="projects">Projects</a>
+        <a href="#skills" data-nav="skills">Skills</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div id="liquid-ether-bg" class="liquid-ether-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">👋 Open to opportunities</div>
+      <h1>Frontend Developer</h1>
+      <div class="subtitle">UI/UX Enthusiast &amp; Swift Explorer</div>
+      <p>Started coding in 2024, went to a hackathon, spent 2025 going deep into UI/UX, Swift and AI — and in 2026 started shipping real things. Focused on frontend, obsessed with design, always building.</p>
+      <div class="cta-buttons">
+        <button class="cta-button primary" onclick="scrollToSection('projects')">View My Work</button>
+        <a href="https://github.com/vermaabhii" class="cta-button secondary" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+        <a href="Abhishek_Verma.pdf" class="cta-button resume" download>Download CV ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section reveal" id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Who I am</h3>
+          <p>I'm a B.Tech student (4th Semester, MERI CET) focused on building clean, user-friendly digital experiences. I work with HTML, CSS, and JavaScript to create beautiful, functional web applications.</p>
+          <p>Currently strengthening my fundamentals, working on real projects, and aiming to grow into a full-stack developer. I have a strong interest in UI/UX design and am exploring iOS development using Swift.</p>
+          <ul class="goal-list">
+            <li>Master frontend technologies</li>
+            <li>Build meaningful projects</li>
+            <li>Transition to full-stack</li>
+            <li>Contribute to open source</li>
+          </ul>
+        </div>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Projects Built</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Vanilla JavaScript</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">2024</div>
+            <div class="stat-label">Year Started</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Learning Passion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey / Timeline Section -->
+  <section class="section reveal" id="journey">
+    <div class="container">
+      <h2 class="section-title">Journey</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2024</div>
+          <div class="timeline-card">
+            <h3>Started Coding</h3>
+            <p>Wrote my first HTML page and fell in love with the idea of building things for the web. Started with tutorials, ended up breaking things in the best way possible.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2024</div>
+          <div class="timeline-card">
+            <h3>Hackathon — Code Kshetra 2.0</h3>
+            <p>Collaborated at GeekRoom's Delhi hackathon to build DuAlert — a browser extension preventing duplicate downloads using SHA-256 file hashing. Gained hands-on experience with the File System Access API, IndexedDB, and pitching under pressure.</p>
+            <a href="https://devfolio.co/projects/dualert-f28d" target="_blank" rel="noopener noreferrer" class="timeline-link">View on Devfolio →</a>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2025</div>
+          <div class="timeline-card">
+            <h3>Going Deeper — UI/UX, Swift & AI</h3>
+            <p>Spent the year expanding beyond HTML & CSS. Dived into UI/UX design with Figma, picked up Swift for iOS, explored JavaScript deeply, and started experimenting with AI tools and workflows.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2026</div>
+          <div class="timeline-card">
+            <h3>Shipping Real Projects</h3>
+            <p>Built and deployed FitLog — a full gym tracker designed in Figma and shipped to Vercel with zero dependencies. Then pushed further with AntiGravity Hands, a webcam-based hand tracking experiment using MediaPipe.</p>
+            <a href="https://fit-log-gym.vercel.app" target="_blank" rel="noopener noreferrer" class="timeline-link">View FitLog →</a>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot active"></div>
+          <div class="timeline-date">Now</div>
+          <div class="timeline-card highlight">
+            <h3>Exploring React & Swift</h3>
+            <p>Diving into React for component-based UIs and Swift for iOS development. Building this portfolio and working toward full-stack development.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section reveal" id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-icon">💪</div>
+          <h3 class="project-title">FitLog</h3>
+          <p class="project-description">Gym goers had no simple way to track progress without bloated apps. FitLog solves that — log exercises, track weights and reps, and visualize progress with before/after comparisons. Zero dependencies.</p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag primary">Vanilla JS</span>
+            <span class="tag">LocalStorage</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/vermaabhii/FitLog" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://fit-log-gym.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🌐</div>
+          <h3 class="project-title">This Portfolio</h3>
+          <p class="project-description">A modern, minimalist portfolio inspired by Apple design principles. Features a custom WebGL fluid background, custom cursor, and smooth section transitions — all in vanilla JS.</p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag primary">WebGL</span>
+            <span class="tag">Responsive</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/vermaabhii" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🖐️</div>
+          <h3 class="project-title">AntiGravity Hands</h3>
+          <p class="project-description">An experimental browser prototype that uses your webcam and MediaPipe hand tracking to let you interact with UI elements using just your fingers — point to hover, spread to scale. Zero dependencies beyond the ML model.</p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag primary">MediaPipe</span>
+            <span class="tag">WebRTC</span>
+            <span class="tag">Experimental</span>
+          </div>
+          <div class="project-links">
+            <a href="https://antigravity-hands.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section reveal" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <p class="skills-subtitle">Technologies I work with</p>
+      <div class="skills-grid">
+        <div class="skill-box" data-level="95" data-bar-color="#f97316">
+          <span class="skill-name">HTML5</span>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 95%"></div></div>
+        </div>
+        <div class="skill-box" data-level="90" data-bar-color="#3b82f6">
+          <span class="skill-name">CSS3</span>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 90%"></div></div>
+        </div>
+        <div class="skill-box" data-level="80" data-bar-color="#eab308">
+          <span class="skill-name">JavaScript</span>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 80%"></div></div>
+        </div>
+        <div class="skill-box" data-level="45" data-bar-color="#61dafb">
+          <span class="skill-name">React</span>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 45%"></div></div>
+        </div>
+        <div class="skill-box" data-level="75" data-bar-color="#a855f7">
+          <span class="skill-name">UI/UX</span>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 75%"></div></div>
+        </div>
+        <div class="skill-box" data-level="70" data-bar-color="#f43f5e">
+          <span class="skill-name">Git</span>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 70%"></div></div>
+        </div>
+        <div class="skill-box" data-level="85" data-bar-color="#10b981">
+          <span class="skill-name">Responsive</span>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 85%"></div></div>
+        </div>
+        <div class="skill-box" data-level="35" data-bar-color="#ff6b6b">
+          <span class="skill-name">Swift</span>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 35%"></div></div>
+        </div>
+        <div class="skill-box" data-level="80" data-bar-color="#f24e1e">
+          <span class="skill-name">Figma</span>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 80%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section reveal" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-content">
+        <p>Have a project idea, an opportunity, or just want to say hi? I'd love to hear from you.</p>
+
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mbdqyoop" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Frontend Developer</h1>
-            <div class="subtitle">UI/UX Enthusiast & Swift Explorer</div>
-            <p>Engineering student crafting clean, user-friendly digital experiences. Building real projects with HTML,
-                CSS, and JavaScript. Passionate about design and always learning.</p>
-            <div class="cta-buttons">
-                <button class="cta-button primary" onclick="scrollToSection('projects')">View My Work</button>
-                <a href="https://github.com/vermaabhii" class="cta-button secondary">GitHub Profile</a>
+            <div class="form-group">
+              <label for="email-field">Email</label>
+              <input type="email" id="email-field" name="email" placeholder="your@email.com" required>
             </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+          </div>
+          <button type="submit" class="cta-button primary form-submit" id="form-submit-btn">Send Message →</button>
+        </form>
+        <div class="form-success" id="form-success" style="display:none;">
+          <div class="success-icon">✓</div>
+          <h3>Message sent!</h3>
+          <p>Thanks for reaching out. I'll get back to you soon.</p>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <h2 class="section-title">About</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Who I am</h3>
-                    <p>I'm an engineering student focused on building clean, user-friendly digital experiences. I work
-                        with HTML, CSS, and JavaScript to create beautiful, functional web applications.</p>
-                    <p>Currently strengthening my fundamentals, working on real projects, and aiming to grow into a
-                        full-stack developer. I have a strong interest in UI/UX design and am exploring iOS development
-                        using Swift.</p>
-                    <ul class="goal-list">
-                        <li>Master frontend technologies</li>
-                        <li>Build meaningful projects</li>
-                        <li>Transition to full-stack</li>
-                        <li>Contribute to open source</li>
-                    </ul>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-box">
-                        <div class="stat-number">3+</div>
-                        <div class="stat-label">Projects Built</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Vanilla JavaScript</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">0</div>
-                        <div class="stat-label">Frameworks</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">∞</div>
-                        <div class="stat-label">Learning Passion</div>
-                    </div>
-                </div>
-            </div>
+        <div class="contact-divider">or reach me directly</div>
+
+        <div class="contact-links">
+          <a href="mailto:abhikumars2007@gmail.com" class="contact-link">✉ Email</a>
+          <a href="https://github.com/vermaabhii" class="contact-link" target="_blank" rel="noopener noreferrer">⌥ GitHub</a>
+          <a href="https://www.linkedin.com/in/vermaabhii/" class="contact-link" target="_blank" rel="noopener noreferrer">in LinkedIn</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section class="section" id="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
+  <footer>
+    <div class="container">
+      <p>Designed & built by <a href="https://github.com/vermaabhii">Abhishek Kumar Verma</a> · <span id="footer-year"></span></p>
+    </div>
+  </footer>
 
-                <div class="project-card">
-                    <div class="project-icon">💪</div>
-                    <h3 class="project-title">FitLog</h3>
-                    <p class="project-description">A clean gym progress tracker. Log exercises, track weights and reps,
-                        visualize progress with before/after comparisons. Built with vanilla JavaScript and
-                        LocalStorage.</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag primary">Vanilla JS</span>
-                        <span class="tag">LocalStorage</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/vermaabhii/FitLog" target="_blank">GitHub</a>
-                        <a href="https://fit-log-gym.vercel.app" target="_blank">Live Demo</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">🌐</div>
-                    <h3 class="project-title">This Portfolio</h3>
-                    <p class="project-description">A modern, minimalist portfolio website inspired by Apple design
-                        principles.</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag primary">Design</span>
-                        <span class="tag">Responsive</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/vermaabhii" target="_blank">GitHub</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">📚</div>
-                    <h3 class="project-title">Learning & Growth</h3>
-                    <p class="project-description">Continuously building projects and exploring React, backend, and
-                        Swift.</p>
-                    <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Backend</span>
-                        <span class="tag primary">Swift</span>
-                        <span class="tag">Exploring</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/vermaabhii" target="_blank">GitHub</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section class="section" id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-box">HTML5</div>
-                <div class="skill-box">CSS3</div>
-                <div class="skill-box">JavaScript</div>
-                <div class="skill-box">React</div>
-                <div class="skill-box">UI/UX</div>
-                <div class="skill-box">Git</div>
-                <div class="skill-box">Responsive</div>
-                <div class="skill-box">Swift</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <p>I'd love to hear from you.</p>
-                <div class="contact-links">
-                    <a href="mailto:abhikumars2007@gmail.com" class="contact-link">Email</a>
-                    <a href="https://github.com/vermaabhii" class="contact-link">GitHub</a>
-                    <a href="https://www.linkedin.com/in/vermaabhii/" class="contact-link">LinkedIn</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>Made with care by <a href="https://github.com/vermaabhii">Abhishek Kumar Verma</a></p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
