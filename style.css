@@ -37,13 +37,10 @@ body {
   box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
 }
 
-/* ─── Target Cursor ─── */
-body { cursor: none; }
-body * { cursor: none !important; }
-body, body * { cursor: auto !important; }
-@media (hover: none) and (pointer: coarse) {
-  body, body * { cursor: auto !important; }
-}
+/* ─── Native cursor and keyboard focus ─── */
+a, button, input, textarea, select { cursor: pointer; }
+input, textarea { cursor: text; }
+:focus-visible { outline: 3px solid var(--accent-bright); outline-offset: 4px; }
 
 /* ─── Freelance portfolio evolution ─── */
 .brand { text-decoration: none; }

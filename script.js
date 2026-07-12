@@ -1178,6 +1178,7 @@ if (contactForm) {
     e.preventDefault();
     submitBtn.textContent = 'Sending…';
     submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
 
     try {
       const res = await fetch(contactForm.action, {
@@ -1193,10 +1194,12 @@ if (contactForm) {
       } else {
         submitBtn.textContent = 'Failed — try email directly';
         submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
       }
     } catch {
       submitBtn.textContent = 'Network error — try again';
       submitBtn.disabled = false;
+      submitBtn.removeAttribute('aria-busy');
     }
   });
 }
