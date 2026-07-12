@@ -860,6 +860,10 @@
    TargetCursor — ported from React/GSAP to vanilla JS
    ============================================================ */
 (function initTargetCursor() {
+  // Replaced below by the stable cursor controller. Leaving this implementation
+  // disabled avoids competing GSAP tickers and stale card-bound hover states.
+  return;
+
   const isMobile = (() => {
     const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const isSmallScreen = window.innerWidth <= 768;
@@ -887,7 +891,9 @@
 
   const BORDER = 3;
   const CORNER_SIZE = 12;
-  const TARGET_SELECTOR = 'a, button, .skill-box, .project-card, .stat-box, .contact-link, .cta-button, .timeline-card';
+  // Only frame compact, actionable controls. Framing whole cards created a
+  // page-sized cursor outline while moving between project content.
+  const TARGET_SELECTOR = 'a, button, input, textarea, select, .cta-button, .contact-link';
   const SPIN_DURATION = 2;
   const HOVER_DURATION = 0.2;
 
@@ -1045,6 +1051,90 @@
 })();
 
 /* ============================================================
+   Stable target cursor — card framing without stale hover states
+   ============================================================ */
+(function initStableTargetCursor() {
+  return;
+
+  const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  if (isTouch) return;
+
+  const cursor = document.createElement('div');
+  cursor.className = 'stable-cursor';
+  cursor.setAttribute('aria-hidden', 'true');
+  cursor.innerHTML = `
+    <span class="stable-cursor-dot"></span>
+    <span class="stable-cursor-corner stable-cursor-tl"></span>
+    <span class="stable-cursor-corner stable-cursor-tr"></span>
+    <span class="stable-cursor-corner stable-cursor-br"></span>
+    <span class="stable-cursor-corner stable-cursor-bl"></span>
+  `;
+  document.body.appendChild(cursor);
+
+  const corners = Array.from(cursor.querySelectorAll('.stable-cursor-corner'));
+  const controlSelector = 'a, button, input, textarea, select';
+  const surfaceSelector = '.project-card, .service-card, .why-grid article, .technology-groups > div, .about-points div, .timeline-card';
+  let pointerX = -100;
+  let pointerY = -100;
+  let activeTarget = null;
+  let queued = false;
+
+  function setCorner(index, left, top) {
+    corners[index].style.left = `${Math.round(left)}px`;
+    corners[index].style.top = `${Math.round(top)}px`;
+  }
+
+  function resetCorners() {
+    setCorner(0, -18, -18);
+    setCorner(1, 4, -18);
+    setCorner(2, 4, 4);
+    setCorner(3, -18, 4);
+  }
+
+  function getTarget() {
+    const element = document.elementFromPoint(pointerX, pointerY);
+    if (!element) return null;
+    return element.closest(controlSelector) || element.closest(surfaceSelector);
+  }
+
+  function render() {
+    queued = false;
+    cursor.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0)`;
+    activeTarget = getTarget();
+    if (!activeTarget) {
+      cursor.classList.remove('is-framing');
+      resetCorners();
+      return;
+    }
+
+    const rect = activeTarget.getBoundingClientRect();
+    const inset = 4;
+    const cornerSize = 14;
+    cursor.classList.add('is-framing');
+    setCorner(0, rect.left - pointerX - inset, rect.top - pointerY - inset);
+    setCorner(1, rect.right - pointerX - cornerSize + inset, rect.top - pointerY - inset);
+    setCorner(2, rect.right - pointerX - cornerSize + inset, rect.bottom - pointerY - cornerSize + inset);
+    setCorner(3, rect.left - pointerX - inset, rect.bottom - pointerY - cornerSize + inset);
+  }
+
+  function queueRender() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(render);
+  }
+
+  window.addEventListener('pointermove', (event) => {
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+    queueRender();
+  }, { passive: true });
+  window.addEventListener('scroll', queueRender, { passive: true });
+  window.addEventListener('resize', queueRender, { passive: true });
+  window.addEventListener('blur', () => { activeTarget = null; cursor.classList.remove('is-framing'); resetCorners(); });
+  resetCorners();
+})();
+
+/* ============================================================
    Intersection observer for scroll-reveal animations
    ============================================================ */
 const revealObserver = new IntersectionObserver((entries) => {
@@ -1056,7 +1146,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-document.querySelectorAll('.reveal, .project-card, .skill-box').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal, .project-card').forEach(el => revealObserver.observe(el));
 
 /* ============================================================
    Active nav highlighting on scroll
@@ -1098,6 +1188,7 @@ if (contactForm) {
 
       if (res.ok) {
         contactForm.style.display = 'none';
+        formSuccess.hidden = false;
         formSuccess.style.display = 'block';
       } else {
         submitBtn.textContent = 'Failed — try email directly';
